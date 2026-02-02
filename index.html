@@ -3,31 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <title>SCFHS Trainer Certification Exam – Prometric Conversion</title>
+
 <style>
-body { font-family: Arial, sans-serif; background:#f4f6f8; padding:20px; }
-h1,h2,h3 { text-align:center; }
-.container { max-width:1000px; margin:auto; background:#fff; padding:25px; border-radius:8px; }
-.question { margin-bottom:25px; padding:15px; border:1px solid #ddd; border-radius:6px; }
-.options label { display:block; margin:5px 0; cursor:pointer; }
-.correct { color:green; font-weight:bold; }
-.incorrect { color:red; font-weight:bold; }
-.hidden { display:none; }
-button { padding:12px 20px; font-size:16px; margin-top:20px; }
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  padding: 20px;
+}
+.container {
+  max-width: 1100px;
+  margin: auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+}
+h1, h2, h3 {
+  text-align: center;
+}
+.question {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+.options label {
+  display: block;
+  margin: 6px 0;
+  cursor: pointer;
+}
+.correct {
+  color: green;
+  font-weight: bold;
+}
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
+.hidden {
+  display: none;
+}
+button {
+  padding: 14px 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
 .certificate {
-  border:6px double #000;
-  padding:30px;
-  margin-top:30px;
-  text-align:center;
+  margin-top: 40px;
+  padding: 30px;
+  border: 6px double #000;
+  text-align: center;
 }
 </style>
 </head>
 
 <body>
 <div class="container">
+
 <h1>SCFHS Trainer Certification Exam</h1>
 <h3>Prometric Conversion Program</h3>
 
-<label><strong>Trainer Full Name:</strong></label><br>
+<label><strong>Trainer Full Name:</strong></label>
 <input type="text" id="trainerName" style="width:100%;padding:10px;font-size:16px;"><br><br>
 
 <form id="examForm"></form>
@@ -36,65 +71,65 @@ button { padding:12px 20px; font-size:16px; margin-top:20px; }
 
 <div id="result" class="hidden"></div>
 <div id="certificate" class="hidden"></div>
+
 </div>
 
 <script>
-const passMark = 0.85;
+const PASS_MARK = 0.85;
 
+/* ===================== 50 EXAM ITEMS ===================== */
 const questions = [
-/* ================= ITEMS 1–10 (AUTO-FAIL CORE) ================= */
 {q:"A student asks why oxygen is applied at SpO₂ 84%. What is the ONLY acceptable trainer explanation?",
 o:["Because hypoxia damages organs","Because ABC priority requires airway and breathing first","Because wording implies urgency","Because oxygen improves numbers"],
-a:1, auto:true, r:"Only ABC safety logic is allowed. Grammar or physiology is forbidden."},
+a:1, auto:true, r:"Only ABC safety logic is allowed."},
 
 {q:"Which trainer statement indicates NCLEX contamination?",
 o:["Prevent harm first","Assess ABC immediately","Address the underlying cause","Immediate safety action"],
-a:2, auto:true, r:"Root-cause framing is NCLEX logic and forbidden."},
+a:2, auto:true, r:"Root-cause framing is forbidden."},
 
 {q:"A trainer allows discussion because reasoning 'makes sense'. This is:",
 o:["Adaptive teaching","Encouraging thinking","Minor deviation","Critical authority failure"],
-a:3, auto:true, r:"Negotiating answers invalidates Prometric authority."},
+a:3, auto:true, r:"Negotiating answers invalidates exam authority."},
 
 {q:"Which justification is DISALLOWED?",
 o:["Violates ABC","Delays safety","Sentence tense implies urgency","Not first action"],
-a:2, auto:true, r:"Grammar-based reasoning is an auto-disqualifier."},
+a:2, auto:true, r:"Grammar-based logic is forbidden."},
 
 {q:"Trainer identity that causes AUTO-FAIL:",
 o:["Exam behavior calibrator","Safety logic enforcer","Clinical mentor","Prometric proxy"],
-a:2, auto:true, r:"Clinical mentorship injects unsafe authority."},
+a:2, auto:true, r:"Clinical mentorship contaminates exam logic."},
 
 {q:"Why is rationale limited to ≤15 words?",
 o:["Save time","Reduce fatigue","Block explanatory drift","Screen size"],
-a:2, auto:false, r:"Compression prevents unsafe explanation habits."},
+a:2, auto:false, r:"Compression prevents unsafe explanation."},
 
 {q:"Correct response to ESL vocabulary confusion?",
 o:["Explain word","Rephrase question","Redirect to action","Skip item"],
 a:2, auto:false, r:"Action priority overrides vocabulary."},
 
-{q:"Trainer allows 25 seconds debate on a safety item. Status?",
+{q:"Trainer allows 25 seconds debate on safety item. Status?",
 o:["Acceptable","Neutral","Risky","Invalid Prometric behavior"],
 a:3, auto:false, r:"Timing discipline is mandatory."},
 
 {q:"Pass rate 93%, response time 8s. Correct action?",
 o:["Celebrate","Release cohort","Audit trainer rationale","Increase difficulty"],
-a:2, auto:false, r:"High pass + speed suggests over-coaching."},
+a:2, auto:false, r:"High pass + speed suggests drift."},
 
-{q:"Which phrase is REQUIRED during instruction?",
+{q:"Which phrase is REQUIRED?",
 o:["In many cases","Usually","It depends","The first action must be"],
-a:3, auto:false, r:"Binary safety language is mandatory."},
+a:3, auto:false, r:"Binary language is required."},
 
-/* ================= ITEMS 11–20 ================= */
-{q:"A trainer explains an answer using disease progression. This is:",
-o:["Advanced instruction","Helpful context","Unsafe coaching drift","Acceptable if brief"],
-a:2, auto:false, r:"Pathophysiology teaching violates Prometric logic."},
+{q:"Trainer explains disease progression. This is:",
+o:["Advanced","Helpful","Unsafe coaching drift","Acceptable if brief"],
+a:2, auto:false, r:"Pathophysiology teaching is forbidden."},
 
-{q:"A student asks, “What if the doctor prefers another order?” Trainer must say:",
-o:["Doctors differ","Follow hospital policy","First action is safety-based","Depends on setting"],
-a:2, auto:false, r:"Provider preference is irrelevant to first action."},
+{q:"Student asks about doctor preference. Trainer must say:",
+o:["Doctors differ","Follow policy","First action is safety-based","Depends on setting"],
+a:2, auto:false, r:"Provider preference is irrelevant."},
 
-{q:"Which action best preserves exam validity?",
-o:["Allow rationale discussion","Encourage debate","Enforce answer within 5 seconds","Explain after vote"],
-a:2, auto:false, r:"Timing enforcement protects decision behavior."},
+{q:"Which action preserves exam validity?",
+o:["Allow debate","Encourage reasoning","Enforce answer within 5 seconds","Explain later"],
+a:2, auto:false, r:"Timing enforcement protects behavior."},
 
 {q:"Trainer says, “You’ll see this in real life.” This is:",
 o:["Motivational","Contextual","Authority contamination","Harmless"],
@@ -104,213 +139,204 @@ a:2, auto:false, r:"Real-life framing overrides exam logic."},
 o:["Redirecting to action","Stopping discussion","Explaining vocabulary","Enforcing timing"],
 a:2, auto:true, r:"Vocabulary explanation is ESL misguidance."},
 
-{q:"A correct answer is chosen for the wrong reason. Trainer should:",
+{q:"Correct answer chosen for wrong reason. Trainer should:",
 o:["Accept it","Praise logic","Mark incorrect","Discuss alternatives"],
-a:2, auto:false, r:"Reasoning must match Prometric logic."},
+a:2, auto:false, r:"Reasoning must align with safety logic."},
 
 {q:"Trainer says, “This is common sense.” This is:",
-o:["Encouraging","Neutral","Invalid rationale","Helpful shortcut"],
-a:2, auto:false, r:"Common-sense framing lacks safety logic."},
+o:["Encouraging","Neutral","Invalid rationale","Helpful"],
+a:2, auto:false, r:"Common sense is not exam logic."},
 
-{q:"Which metric MOST signals coaching drift?",
-o:["Low pass rate","High ESL errors","High pass + low response time","Long exam duration"],
-a:2, auto:false, r:"Speed + success suggests over-guidance."},
+{q:"Which metric signals coaching drift?",
+o:["Low pass","High ESL errors","High pass + low response time","Long exams"],
+a:2, auto:false, r:"Speed + success suggests over-coaching."},
 
-{q:"Trainer explains grammar tense to justify urgency. Result?",
-o:["Minor error","Coachable moment","AUTO-FAIL","Acceptable ESL aid"],
-a:2, auto:true, r:"Grammar-based logic invalidates certification."},
+{q:"Trainer explains grammar tense. Result?",
+o:["Minor error","Coachable","AUTO-FAIL","ESL support"],
+a:2, auto:true, r:"Grammar logic is prohibited."},
 
-{q:"Trainer role during drills is best described as:",
+{q:"Trainer role during drills is:",
 o:["Facilitator","Mentor","Authority enforcer","Clinical guide"],
 a:2, auto:false, r:"Authority enforcement is required."},
 
-/* ================= ITEMS 21–30 ================= */
-{q:"Which phrase must be corrected immediately?",
+{q:"Which phrase must be corrected?",
 o:["Immediate safety","First action","Address cause","Assess airway"],
 a:2, auto:false, r:"Cause-seeking delays safety."},
 
-{q:"Trainer allows partial credit answers. This is:",
+{q:"Allowing partial credit is:",
 o:["Fair","Educational","Unsafe","Supportive"],
 a:2, auto:false, r:"Binary decisions only."},
 
-{q:"Which teaching habit causes score inflation?",
-o:["Strict timing","Answer locking","Explaining why distractors exist","Silent correction"],
+{q:"Which habit causes score inflation?",
+o:["Strict timing","Answer locking","Explaining distractors","Silent correction"],
 a:2, auto:false, r:"Distractor explanation trains guessing."},
 
-{q:"Trainer corrects answer after group consensus. This is:",
+{q:"Trainer corrects after group vote. This is:",
 o:["Acceptable","Neutral","Authority failure","Efficient"],
 a:2, auto:false, r:"Authority must be singular."},
 
 {q:"Which justification is ALLOWED?",
-o:["This feels urgent","This wording is tricky","This delays safety","I’ve seen this happen"],
+o:["Feels urgent","Wording tricky","Delays safety","Seen in practice"],
 a:2, auto:false, r:"Safety delay framing is valid."},
 
-{q:"A student argues politely. Trainer must:",
-o:["Engage","Explain further","Restate rule and move on","Vote again"],
+{q:"Student argues politely. Trainer must:",
+o:["Engage","Explain","Restate rule and move on","Vote again"],
 a:2, auto:false, r:"Rules override persuasion."},
 
-{q:"Trainer explains options elimination logic in detail. Risk?",
-o:["None","Improves scores","Teaches guessing","Encourages insight"],
-a:2, auto:false, r:"Elimination logic trains test gaming."},
+{q:"Explaining elimination logic risks:",
+o:["Nothing","Improves scores","Teaching guessing","Insight"],
+a:2, auto:false, r:"Guessing undermines safety logic."},
 
-{q:"Which response preserves Prometric intent?",
-o:["Why do you think that?","Let’s discuss","Correct answer is locked","Explain your thinking"],
-a:2, auto:false, r:"Discussion invites drift."},
+{q:"Which response preserves intent?",
+o:["Why do you think?","Let’s discuss","Correct answer is locked","Explain thinking"],
+a:2, auto:false, r:"Finality trains decisiveness."},
 
-{q:"Trainer says, “In NCLEX, this would be different.” Result?",
-o:["Clarifying","Helpful","AUTO-FAIL","Minor issue"],
+{q:"Trainer references NCLEX. Result?",
+o:["Helpful","Clarifying","AUTO-FAIL","Minor issue"],
 a:2, auto:true, r:"NCLEX comparison contaminates logic."},
 
-{q:"Trainer goal during exam prep is to:",
-o:["Increase understanding","Improve confidence","Enforce safe decisions","Explain rationale deeply"],
+{q:"Trainer goal is to:",
+o:["Increase understanding","Build confidence","Enforce safe decisions","Explain answers"],
 a:2, auto:false, r:"Decision behavior is the target."},
 
-/* ================= ITEMS 31–40 ================= */
-{q:"Which behavior predicts unsafe cohort release?",
-o:["Low scores","Slow answers","High confidence explanations","High pass rates"],
-a:2, auto:false, r:"Confidence + explanation signals drift."},
+{q:"Predictor of unsafe release?",
+o:["Low scores","Slow answers","Confident explanations","High pass"],
+a:2, auto:false, r:"Confidence signals drift."},
 
-{q:"Trainer adjusts answers based on cohort level. This is:",
+{q:"Trainer adjusts answers by cohort level:",
 o:["Adaptive","Fair","Unsafe","Inclusive"],
 a:2, auto:false, r:"Standards must not change."},
 
-{q:"A trainer rewords a stem to help comprehension. Result?",
-o:["Helpful","Inclusive","Invalid exam simulation","Efficient"],
-a:2, auto:false, r:"Rewording alters decision cues."},
+{q:"Rewording stem for clarity is:",
+o:["Helpful","Inclusive","Invalid simulation","Efficient"],
+a:2, auto:false, r:"Rewording alters cues."},
 
-{q:"Which metric should trigger immediate audit?",
+{q:"Which metric triggers audit?",
 o:["Pass 60%","Response 12s","ESL errors 0%","Pass 95% + 7s"],
-a:3, auto:false, r:"Perfect performance is suspicious."},
+a:3, auto:false, r:"Perfect metrics are suspicious."},
 
-{q:"Trainer encourages memorizing keywords. This is:",
+{q:"Keyword memorization coaching is:",
 o:["Efficient","Strategic","Forbidden","Helpful"],
-a:2, auto:true, r:"Keyword memorization bypasses reasoning."},
+a:2, auto:true, r:"Keywords bypass reasoning."},
 
-{q:"Trainer explains why distractor is tempting. Effect?",
+{q:"Explaining distractor temptation:",
 o:["Builds insight","Clarifies","Trains unsafe reasoning","Neutral"],
 a:2, auto:false, r:"Temptation explanation enables guessing."},
 
-{q:"Correct handling of incorrect answer?",
+{q:"Handling incorrect answer:",
 o:["Explain fully","Allow defense","State unsafe reason briefly","Debate"],
 a:2, auto:false, r:"Brief unsafe labeling only."},
 
-{q:"Trainer allows exceptions to rules. Result?",
+{q:"Allowing rule exceptions causes:",
 o:["Flexibility","Fairness","System breakdown","Support"],
 a:2, auto:false, r:"Consistency preserves validity."},
 
-{q:"Which phrase must NEVER be used?",
+{q:"Phrase never allowed:",
 o:["Immediate action","Unsafe delay","It depends","First priority"],
-a:2, auto:true, r:"Conditional language violates binary logic."},
+a:2, auto:true, r:"Conditional language is forbidden."},
 
-{q:"Trainer uses personal anecdotes. Effect?",
+{q:"Personal anecdotes cause:",
 o:["Engagement","Authority","Bias injection","Motivation"],
-a:2, auto:false, r:"Personal stories distort judgment."},
+a:2, auto:false, r:"Stories distort judgment."},
 
-/* ================= ITEMS 41–50 ================= */
-{q:"Trainer allows guessing strategy coaching. This is:",
+{q:"Guessing strategy coaching is:",
 o:["Helpful","Strategic","AUTO-FAIL","Efficient"],
 a:2, auto:true, r:"Guessing undermines safety screening."},
 
-{q:"Which action best enforces Prometric discipline?",
+{q:"Best enforcement action:",
 o:["Explain more","Allow retries","Lock answer and move on","Ask peers"],
-a:2, auto:false, r:"Finality trains decisiveness."},
+a:2, auto:false, r:"Finality enforces discipline."},
 
-{q:"Trainer responds to protest by explaining more. This is:",
+{q:"Trainer explains more after protest:",
 o:["Supportive","Educational","Unsafe","Inclusive"],
-a:2, auto:false, r:"Explanation rewards protest behavior."},
+a:2, auto:false, r:"Explanation rewards protest."},
 
-{q:"Which mindset must a trainer suppress?",
+{q:"Mindset to suppress:",
 o:["Instructor","Facilitator","Clinician","Exam proxy"],
-a:2, auto:false, r:"Clinical identity conflicts with exam role."},
+a:2, auto:false, r:"Clinical identity conflicts."},
 
-{q:"Trainer adjusts timing for ESL students. Result?",
+{q:"Adjusting timing for ESL is:",
 o:["Inclusive","Fair","Invalid simulation","Helpful"],
 a:2, auto:false, r:"Timing must be uniform."},
 
-{q:"Trainer evaluates reasoning quality instead of choice. This is:",
+{q:"Evaluating reasoning instead of choice:",
 o:["Advanced","Educational","Forbidden","Fair"],
-a:2, auto:false, r:"Only choice correctness matters."},
+a:2, auto:false, r:"Only choice matters."},
 
-{q:"Trainer explains cultural context. Effect?",
-o:["Clarifies","Supports ESL","Distracts from action","Neutral"],
+{q:"Cultural context explanation:",
+o:["Clarifies","Supports ESL","Delays action","Neutral"],
 a:2, auto:false, r:"Culture discussion delays safety."},
 
-{q:"Which outcome invalidates certification regardless of score?",
+{q:"Outcome invalidating certification:",
 o:["Low pass","Slow cohort","Grammar-based justification","High ESL error"],
-a:2, auto:true, r:"Grammar logic is a critical failure."},
+a:2, auto:true, r:"Grammar logic is critical failure."},
 
-{q:"Trainer says, “You’ll understand with experience.” This is:",
+{q:"“You’ll learn with experience” is:",
 o:["Mentorship","Encouragement","Authority contamination","Harmless"],
 a:2, auto:false, r:"Experience framing overrides rules."},
 
-{q:"Final responsibility of certified trainer:",
-o:["Teach content","Motivate learners","Prevent unsafe release","Explain answers"],
-a:2, auto:false, r:"Release control is the core duty."}
+{q:"Final responsibility of trainer:",
+o:["Teach content","Motivate","Prevent unsafe release","Explain answers"],
+a:2, auto:false, r:"Release control is core duty."}
 ];
-</script>
 
-
-
-while (questions.length < 50) {
-  questions.push({
-    q:"Trainer permits explanation beyond safety logic. This indicates:",
-    o:["Supportive teaching","ESL accommodation","Coaching drift","Advanced insight"],
-    a:2, auto:false,
-    r:"Any non-safety explanation equals drift."
-  });
-}
-
+/* ===================== RENDER ===================== */
 const form = document.getElementById("examForm");
 
-questions.forEach((item, index) => {
+questions.forEach((item, i) => {
   const div = document.createElement("div");
   div.className = "question";
-  div.innerHTML = `<strong>Q${index+1}${item.auto ? " (AUTO-FAIL)" : ""}:</strong> ${item.q}`;
+  div.innerHTML = `<strong>Q${i+1}${item.auto ? " (AUTO-FAIL)" : ""}:</strong> ${item.q}`;
   const opts = document.createElement("div");
   opts.className = "options";
-  item.o.forEach((opt,i)=>{
+  item.o.forEach((opt, j) => {
     opts.innerHTML += `
       <label>
-        <input type="radio" name="q${index}" value="${i}"> ${opt}
+        <input type="radio" name="q${i}" value="${j}"> ${opt}
       </label>`;
   });
   div.appendChild(opts);
   form.appendChild(div);
 });
 
-function submitExam(){
+/* ===================== SUBMIT ===================== */
+function submitExam() {
   const name = document.getElementById("trainerName").value.trim();
-  if(!name){ alert("Enter trainer name"); return; }
+  if (!name) {
+    alert("Please enter trainer name.");
+    return;
+  }
 
-  let correct=0, autoFail=false;
-  let output="<h2>Exam Result</h2>";
+  let correct = 0;
+  let autoFail = false;
+  let output = "<h2>Exam Result</h2>";
 
-  questions.forEach((q,i)=>{
+  questions.forEach((q, i) => {
     const ans = document.querySelector(`input[name="q${i}"]:checked`);
-    if(!ans){
-      output+=`<p class="incorrect">Q${i+1}: Not answered — FAIL</p>`;
-      if(q.auto) autoFail=true;
+    if (!ans) {
+      output += `<p class="incorrect">Q${i+1}: Not answered</p>`;
+      if (q.auto) autoFail = true;
       return;
     }
-    if(parseInt(ans.value)===q.a){
+    if (parseInt(ans.value) === q.a) {
       correct++;
-      output+=`<p class="correct">Q${i+1}: Correct<br>Rationale: ${q.r}</p>`;
+      output += `<p class="correct">Q${i+1}: Correct<br>Rationale: ${q.r}</p>`;
     } else {
-      output+=`<p class="incorrect">Q${i+1}: Incorrect<br>Rationale: ${q.r}</p>`;
-      if(q.auto) autoFail=true;
+      output += `<p class="incorrect">Q${i+1}: Incorrect<br>Rationale: ${q.r}</p>`;
+      if (q.auto) autoFail = true;
     }
   });
 
   const score = correct / questions.length;
-  const pass = score>=passMark && !autoFail;
+  const pass = score >= PASS_MARK && !autoFail;
 
-  output+=`<h3>Score: ${(score*100).toFixed(1)}%</h3>`;
-  output+=`<h2>${pass?"PASS":"FAIL"}</h2>`;
+  output += `<h3>Score: ${(score * 100).toFixed(1)}%</h3>`;
+  output += `<h2>${pass ? "PASS" : "FAIL"}</h2>`;
 
-  document.getElementById("result").innerHTML=output;
+  document.getElementById("result").innerHTML = output;
   document.getElementById("result").classList.remove("hidden");
 
-  if(pass){
+  if (pass) {
     document.getElementById("certificate").innerHTML = `
       <div class="certificate">
         <h2>CERTIFICATE OF COMPLETION</h2>
@@ -325,5 +351,6 @@ function submitExam(){
   }
 }
 </script>
+
 </body>
 </html>
