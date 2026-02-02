@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trainer Certification Exam – SCFHS Prometric</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; padding:20px; }
+    .container { max-width:900px; margin:auto; background:#ffffff; padding:25px; border-radius:10px; }
+    h1, h2 { color:#222; }
+    .question { margin-top:25px; padding:20px; border:1px solid #ddd; border-radius:8px; }
+    .options label { display:block; margin:8px 0; cursor:pointer; }
+    .btn { margin-top:15px; padding:10px 18px; font-size:15px; background:#222; color:#fff; border:none; border-radius:6px; cursor:pointer; }
+    .btn:hover { background:#000; }
+    .feedback { margin-top:15px; padding:15px; border-radius:6px; }
+    .correct { background:#e7f6ec; border-left:5px solid #2e8b57; }
+    .incorrect { background:#fdecea; border-left:5px solid #c0392b; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+<h1>Trainer Certification Exam</h1>
+<p><strong>SCFHS Prometric Conversion Program</strong></p>
+
+<p><strong>Candidate Name:</strong></p>
+<input type="text" id="candidateName" placeholder="Enter full name" style="width:100%; padding:8px; font-size:15px;" />
+
+<hr>
+
+<h2>Instructions</h2>
+<ul>
+  <li>This is a <strong>trainer-only certification exam</strong>.</li>
+  <li>Choose the answer that reflects <strong>Prometric safety behavior</strong>.</li>
+  <li>After each question, feedback will be shown immediately.</li>
+  <li>Rationales explain <strong>why answers are correct or unsafe</strong>.</li>
+</ul>
+
+<hr>
+
+<!-- QUESTION 1 -->
+<div class="question" id="q1">
+  <p><strong>Question 1</strong><br>
+  Patient becomes suddenly hypotensive. Which trainer-approved answer is correct?</p>
+
+  <div class="options">
+    <label><input type="radio" name="q1" value="A"> A. Document blood pressure trend</label>
+    <label><input type="radio" name="q1" value="B"> B. Reassess in 10 minutes</label>
+    <label><input type="radio" name="q1" value="C"> C. Elevate legs and assess airway</label>
+    <label><input type="radio" name="q1" value="D"> D. Call physician immediately</label>
+  </div>
+
+  <button class="btn" onclick="checkQ1()">Submit Answer</button>
+
+  <div id="q1-feedback" class="feedback hidden"></div>
+</div>
+
+<!-- QUESTION 2 -->
+<div class="question hidden" id="q2">
+  <p><strong>Question 2</strong><br>
+  Which trainer statement MUST be corrected?</p>
+
+  <div class="options">
+    <label><input type="radio" name="q2" value="A"> A. “This option delays care.”</label>
+    <label><input type="radio" name="q2" value="B"> B. “This exceeds nurse scope.”</label>
+    <label><input type="radio" name="q2" value="C"> C. “This sounds more professional.”</label>
+    <label><input type="radio" name="q2" value="D"> D. “ABC is violated here.”</label>
+  </div>
+
+  <button class="btn" onclick="checkQ2()">Submit Answer</button>
+
+  <div id="q2-feedback" class="feedback hidden"></div>
+</div>
+
+</div>
+
+<script>
+function checkQ1() {
+  const choice = document.querySelector('input[name="q1"]:checked');
+  const fb = document.getElementById('q1-feedback');
+  if (!choice) return;
+
+  fb.classList.remove('hidden');
+
+  if (choice.value === 'C') {
+    fb.className = 'feedback correct';
+    fb.innerHTML = '<strong>Correct.</strong><br>Immediate safety action within nursing scope. Addresses circulation and airway without delay.';
+    document.getElementById('q2').classList.remove('hidden');
+  } else if (choice.value === 'A') {
+    fb.className = 'feedback incorrect';
+    fb.innerHTML = '<strong>Incorrect.</strong><br>Delay error: documentation occurs after safety actions, not before.';
+  } else if (choice.value === 'B') {
+    fb.className = 'feedback incorrect';
+    fb.innerHTML = '<strong>Incorrect.</strong><br>Assessment lock: waiting when immediate action is required.';
+  } else if (choice.value === 'D') {
+    fb.className = 'feedback incorrect';
+    fb.innerHTML = '<strong>Incorrect.</strong><br>Scope error: nurse can initiate safety actions before contacting physician.';
+  }
+}
+
+function checkQ2() {
+  const choice = document.querySelector('input[name="q2"]:checked');
+  const fb = document.getElementById('q2-feedback');
+  if (!choice) return;
+
+  fb.classList.remove('hidden');
+
+  if (choice.value === 'C') {
+    fb.className = 'feedback correct';
+    fb.innerHTML = '<strong>Correct.</strong><br>This statement relies on grammar and professionalism instead of safety behavior. This is ESL misguidance.';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.innerHTML = '<strong>Incorrect.</strong><br>This statement uses valid Prometric safety-based rationale and does not require correction.';
+  }
+}
+</script>
+
+</body>
+</html>
+
+<hr>
+<h2>Prometric Trainer Certification Exam — Interactive Section</h2>
+<p><strong>Instruction to Operator:</strong> Ask the test taker to answer ONE option. Reveal feedback immediately before moving to the next item.</p>
+
+<h3>Test Taker Name: ___________________________</h3>
+
+<hr>
+<h3>Question 3</h3>
+<p>A post‑operative patient suddenly reports shortness of breath. Oxygen saturation is 89%.</p>
+<ul>
+  <li>A. Document complaint and reassess in 15 minutes</li>
+  <li>B. Encourage deep breathing exercises</li>
+  <li>C. Apply oxygen and assess airway and breathing</li>
+  <li>D. Notify physician before intervening</li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>Rationale:</strong> Immediate oxygenation and ABC assessment is within nursing scope and addresses life‑threatening hypoxia.</p>
+<p><strong>Why others are incorrect:</strong></p>
+<ul>
+  <li>A — Delay error. Documentation without action.</li>
+  <li>B — Inadequate response to hypoxia.</li>
+  <li>D — Scope delay. Action is allowed before MD contact.</li>
+</ul>
+
+<hr>
+<h3>Question 4</h3>
+<p>A patient receiving IV fluids complains of chest tightness. Which response follows Prometric logic?</p>
+<ul>
+  <li>A. Stop infusion and assess airway and circulation</li>
+  <li>B. Slow the infusion and observe</li>
+  <li>C. Call the physician immediately</li>
+  <li>D. Reassure the patient</li>
+</ul>
+<p><strong>Correct Answer:</strong> A</p>
+<p><strong>Rationale:</strong> Potential fluid overload or reaction requires immediate stop and ABC assessment.</p>
+<p><strong>Why others are incorrect:</strong></p>
+<ul>
+  <li>B — Partial action without safety assessment.</li>
+  <li>C — Delays nursing intervention.</li>
+  <li>D — Unsafe reassurance.</li>
+</ul>
+
+<hr>
+<h3>Question 5</h3>
+<p>A confused patient tries to get out of bed without assistance.</p>
+<ul>
+  <li>A. Apply restraints immediately</li>
+  <li>B. Call family to calm patient</li>
+  <li>C. Ensure safety, stay with patient, and call for help</li>
+  <li>D. Document behavior</li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>Rationale:</strong> Fall prevention through immediate supervision and safety action is required.</p>
+<p><strong>Why others are incorrect:</strong></p>
+<ul>
+  <li>A — Excessive and scope‑restricted.</li>
+  <li>B — Delays safety.</li>
+  <li>D — Documentation without intervention.</li>
+</ul>
+
+<hr>
+<h3>Question 6</h3>
+<p>A nurse notices IV infiltration at the insertion site.</p>
+<ul>
+  <li>A. Document and continue infusion</li>
+  <li>B. Stop infusion and assess site</li>
+  <li>C. Notify physician immediately</li>
+  <li>D. Reassess after shift change</li>
+</ul>
+<p><strong>Correct Answer:</strong> B</p>
+<p><strong>Rationale:</strong> Infiltration requires immediate stop and local assessment.</p>
+<p><strong>Why others are incorrect:</strong></p>
+<ul>
+  <li>A — Unsafe continuation.</li>
+  <li>C — MD contact before nursing action.</li>
+  <li>D — Delay.</li>
+</ul>
+
+<hr>
+<h3>Question 7</h3>
+<p>Which learner explanation should a trainer STOP immediately?</p>
+<ul>
+  <li>A. “This option delays care.”</li>
+  <li>B. “This is unsafe because airway is ignored.”</li>
+  <li>C. “This sentence sounds more professional.”</li>
+  <li>D. “This exceeds nursing scope.”</li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>Rationale:</strong> Prometric tests behavior, not English style or professionalism cues.</p>
+
+<hr>
+<h3>Question 8</h3>
+<p>Cohort data shows 95% pass rate but high variability in rationale explanations. Trainer action?</p>
+<ul>
+  <li>A. Release cohort immediately</li>
+  <li>B. Ignore due to high pass rate</li>
+  <li>C. Audit trainer calibration and rationale language</li>
+  <li>D. Add more grammar lessons</li>
+</ul>
+<p><strong>Correct Answer:</strong> C</p>
+<p><strong>Rationale:</strong> Inconsistent rationale indicates calibration drift despite high scores.</p>
+
