@@ -42,48 +42,6 @@ button { padding:12px 20px; font-size:16px; margin-top:20px; }
 const passMark = 0.85;
 
 const questions = [
-/* ================= AUTO-FAIL ITEMS ================= */
-{q:"A student asks why oxygen is applied at SpO₂ 84%. What is the ONLY acceptable trainer explanation?",
-o:["Because hypoxia damages organs","Because ABC priority requires airway and breathing first","Because wording implies urgency","Because oxygen improves numbers"],
-a:1, auto:true, r:"Only ABC safety logic is allowed. Grammar or physiology is forbidden."},
-
-{q:"Which trainer statement indicates NCLEX contamination?",
-o:["Prevent harm first","Assess ABC immediately","Address the underlying cause","Immediate safety action"],
-a:2, auto:true, r:"Root-cause framing is NCLEX logic and forbidden."},
-
-{q:"A trainer allows discussion because reasoning 'makes sense'. This is:",
-o:["Adaptive teaching","Encouraging thinking","Minor deviation","Critical authority failure"],
-a:3, auto:true, r:"Negotiating answers invalidates Prometric authority."},
-
-{q:"Which justification is DISALLOWED?",
-o:["Violates ABC","Delays safety","Sentence tense implies urgency","Not first action"],
-a:2, auto:true, r:"Grammar-based reasoning is an auto-disqualifier."},
-
-{q:"Trainer identity that causes AUTO-FAIL:",
-o:["Exam behavior calibrator","Safety logic enforcer","Clinical mentor","Prometric proxy"],
-a:2, auto:true, r:"Clinical mentorship injects unsafe authority."},
-
-/* ================= STANDARD ITEMS ================= */
-{q:"Why is rationale limited to ≤15 words?",
-o:["Save time","Reduce fatigue","Block explanatory drift","Screen size"],
-a:2, auto:false, r:"Compression prevents unsafe explanation habits."},
-
-{q:"Correct response to ESL vocabulary confusion?",
-o:["Explain word","Rephrase question","Redirect to action","Skip item"],
-a:2, auto:false, r:"Action priority overrides vocabulary."},
-
-{q:"Trainer allows 25s debate on safety item. Status?",
-o:["Acceptable","Neutral","Risky","Invalid Prometric behavior"],
-a:3, auto:false, r:"Timing discipline is mandatory."},
-
-{q:"Pass rate 93%, response time 8s. Correct action?",
-o:["Celebrate","Release cohort","Audit trainer rationale","Increase difficulty"],
-a:2, auto:false, r:"High pass + speed suggests over-coaching."},
-
-{q:"Which phrase is REQUIRED?",
-o:["In many cases","Usually","It depends","First action must be"],
-a:3, auto:false, r:"Binary safety language is required."},
-
 <script>
 const passMark = 0.85;
 
@@ -294,6 +252,7 @@ o:["Teach content","Motivate learners","Prevent unsafe release","Explain answers
 a:2, auto:false, r:"Release control is the core duty."}
 ];
 </script>
+
 
 while (questions.length < 50) {
   questions.push({
