@@ -1,21 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-.hidden { display: none; }
-.feedback { margin-top: 10px; font-weight: bold; }
-.btn { margin-top: 10px; }
-.options label { display: block; margin: 6px 0; }
-</style>
+  <meta charset="UTF-8" />
+  <title>Trainer Certification Exam – SCFHS Prometric</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; padding:20px; }
+    .container { max-width:900px; margin:auto; background:#ffffff; padding:25px; border-radius:10px; }
+    h1, h2 { color:#222; }
+    .question { margin-top:25px; padding:20px; border:1px solid #ddd; border-radius:8px; }
+    .options label { display:block; margin:8px 0; cursor:pointer; }
+    .btn { margin-top:15px; padding:10px 18px; font-size:15px; background:#222; color:#fff; border:none; border-radius:6px; cursor:pointer; }
+    .btn:hover { background:#000; }
+    .feedback { margin-top:15px; padding:15px; border-radius:6px; }
+    .correct { background:#e7f6ec; border-left:5px solid #2e8b57; }
+    .incorrect { background:#fdecea; border-left:5px solid #c0392b; }
+    .hidden { display:none; }
+  </style>
 </head>
-
 <body>
+<div class="container">
 
-<!-- QUESTION 3 -->
-<div class="question" id="q3">
+<h1>Trainer Certification Exam</h1>
+<p><strong>SCFHS Prometric Conversion Program</strong></p>
+
+<p><strong>Candidate Name:</strong></p>
+<input type="text" id="candidateName" placeholder="Enter full name" style="width:100%; padding:8px; font-size:15px;" />
+
+<hr>
+
+<h2>Instructions</h2>
+<ul>
+  <li>This is a <strong>trainer-only certification exam</strong>.</li>
+  <li>Choose the answer that reflects <strong>Prometric safety behavior</strong>.</li>
+  <li>After each question, feedback will be shown immediately.</li>
+  <li>Rationales explain <strong>why answers are correct or unsafe</strong>.</li>
+</ul>
+
+<hr>
+
+<!-- QUESTION 1 -->
+<div class="question" id="q1">
+  <p><strong>Question 1</strong><br>
+  Patient becomes suddenly hypotensive. Which trainer-approved answer is correct?</p>
+
+  <div class="options">
+    <label><input type="radio" name="q1" value="A"> A. Document blood pressure trend</label>
+    <label><input type="radio" name="q1" value="B"> B. Reassess in 10 minutes</label>
+    <label><input type="radio" name="q1" value="C"> C. Elevate legs and assess airway</label>
+    <label><input type="radio" name="q1" value="D"> D. Call physician immediately</label>
+  </div>
+
+  <button class="btn" onclick="checkQ1()">Submit Answer</button>
+
+  <div id="q1-feedback" class="feedback hidden"></div>
+</div>
+
+<!-- QUESTION 2 -->
+<div class="question hidden" id="q2">
+  <p><strong>Question 2</strong><br>
+  Which trainer statement MUST be corrected?</p>
+
+  <div class="options">
+    <label><input type="radio" name="q2" value="A"> A. “This option delays care.”</label>
+    <label><input type="radio" name="q2" value="B"> B. “This exceeds nurse scope.”</label>
+    <label><input type="radio" name="q2" value="C"> C. “This sounds more professional.”</label>
+    <label><input type="radio" name="q2" value="D"> D. “ABC is violated here.”</label>
+  </div>
+  <!-- QUESTION 3 -->
+<div class="question hidden" id="q3">
   <p><strong>Question 3</strong><br>
   Post-operative patient suddenly reports shortness of breath. SpO₂ is 89%.</p>
 
@@ -33,13 +85,13 @@
 <!-- QUESTION 4 -->
 <div class="question hidden" id="q4">
   <p><strong>Question 4</strong><br>
-  Patient receiving IV fluids complains of chest tightness.</p>
+  Trainer notices candidate consistently chooses the most detailed answer. What should the trainer correct?</p>
 
   <div class="options">
-    <label><input type="radio" name="q4" value="A"> A. Stop infusion and assess airway and circulation</label>
-    <label><input type="radio" name="q4" value="B"> B. Slow the infusion and observe</label>
-    <label><input type="radio" name="q4" value="C"> C. Call physician immediately</label>
-    <label><input type="radio" name="q4" value="D"> D. Reassure the patient</label>
+    <label><input type="radio" name="q4" value="A"> A. Complexity often signals unsafe delay</label>
+    <label><input type="radio" name="q4" value="B"> B. Prometric favors long explanations</label>
+    <label><input type="radio" name="q4" value="C"> C. Professional language equals safety</label>
+    <label><input type="radio" name="q4" value="D"> D. Detailed answers show competence</label>
   </div>
 
   <button class="btn" onclick="checkQ4()">Submit Answer</button>
@@ -49,13 +101,13 @@
 <!-- QUESTION 5 -->
 <div class="question hidden" id="q5">
   <p><strong>Question 5</strong><br>
-  Confused patient attempts to get out of bed unassisted.</p>
+  IV site appears swollen, pale, and cool to touch.</p>
 
   <div class="options">
-    <label><input type="radio" name="q5" value="A"> A. Apply restraints immediately</label>
-    <label><input type="radio" name="q5" value="B"> B. Call family to calm patient</label>
-    <label><input type="radio" name="q5" value="C"> C. Stay with patient and ensure safety</label>
-    <label><input type="radio" name="q5" value="D"> D. Document behavior</label>
+    <label><input type="radio" name="q5" value="A"> A. Continue infusion and document</label>
+    <label><input type="radio" name="q5" value="B"> B. Stop infusion and assess site</label>
+    <label><input type="radio" name="q5" value="C"> C. Notify physician immediately</label>
+    <label><input type="radio" name="q5" value="D"> D. Reassess at end of shift</label>
   </div>
 
   <button class="btn" onclick="checkQ5()">Submit Answer</button>
@@ -65,13 +117,13 @@
 <!-- QUESTION 6 -->
 <div class="question hidden" id="q6">
   <p><strong>Question 6</strong><br>
-  IV insertion site appears swollen, pale, and cool.</p>
+  Which candidate explanation signals unsafe Prometric reasoning?</p>
 
   <div class="options">
-    <label><input type="radio" name="q6" value="A"> A. Document and continue infusion</label>
-    <label><input type="radio" name="q6" value="B"> B. Stop infusion and assess site</label>
-    <label><input type="radio" name="q6" value="C"> C. Notify physician immediately</label>
-    <label><input type="radio" name="q6" value="D"> D. Reassess after shift change</label>
+    <label><input type="radio" name="q6" value="A"> A. “This delays immediate safety care.”</label>
+    <label><input type="radio" name="q6" value="B"> B. “ABC priorities are violated.”</label>
+    <label><input type="radio" name="q6" value="C"> C. “This answer sounds more formal.”</label>
+    <label><input type="radio" name="q6" value="D"> D. “This exceeds nursing scope.”</label>
   </div>
 
   <button class="btn" onclick="checkQ6()">Submit Answer</button>
@@ -81,13 +133,13 @@
 <!-- QUESTION 7 -->
 <div class="question hidden" id="q7">
   <p><strong>Question 7</strong><br>
-  Patient becomes suddenly restless and tachypneic.</p>
+  Patient becomes suddenly confused and attempts to climb out of bed.</p>
 
   <div class="options">
-    <label><input type="radio" name="q7" value="A"> A. Reassure and reassess later</label>
-    <label><input type="radio" name="q7" value="B"> B. Apply oxygen and assess breathing</label>
-    <label><input type="radio" name="q7" value="C"> C. Document symptoms</label>
-    <label><input type="radio" name="q7" value="D"> D. Call physician immediately</label>
+    <label><input type="radio" name="q7" value="A"> A. Apply restraints immediately</label>
+    <label><input type="radio" name="q7" value="B"> B. Stay with patient and ensure safety</label>
+    <label><input type="radio" name="q7" value="C"> C. Call family to calm patient</label>
+    <label><input type="radio" name="q7" value="D"> D. Document behavior</label>
   </div>
 
   <button class="btn" onclick="checkQ7()">Submit Answer</button>
@@ -97,13 +149,13 @@
 <!-- QUESTION 8 -->
 <div class="question hidden" id="q8">
   <p><strong>Question 8</strong><br>
-  Which trainer explanation reflects ESL misguidance?</p>
+  Trainer tells candidates: “Always call the physician first.” How should this be corrected?</p>
 
   <div class="options">
-    <label><input type="radio" name="q8" value="A"> A. “This option delays care.”</label>
-    <label><input type="radio" name="q8" value="B"> B. “This violates ABC priority.”</label>
-    <label><input type="radio" name="q8" value="C"> C. “This sentence sounds more professional.”</label>
-    <label><input type="radio" name="q8" value="D"> D. “This exceeds nursing scope.”</label>
+    <label><input type="radio" name="q8" value="A"> A. Nurses initiate safety actions within scope</label>
+    <label><input type="radio" name="q8" value="B"> B. Physicians prefer early calls</label>
+    <label><input type="radio" name="q8" value="C"> C. Documentation should come first</label>
+    <label><input type="radio" name="q8" value="D"> D. Prometric discourages independence</label>
   </div>
 
   <button class="btn" onclick="checkQ8()">Submit Answer</button>
@@ -129,4 +181,67 @@
 <!-- QUESTION 10 -->
 <div class="question hidden" id="q10">
   <p><strong>Question 10</strong><br>
-  Patient suddenly vomits and becomes unresponsive.
+  Patient suddenly vomits and becomes unresponsive.</p>
+
+  <div class="options">
+    <label><input type="radio" name="q10" value="A"> A. Document incident</label>
+    <label><input type="radio" name="q10" value="B"> B. Turn patient to side and assess airway</label>
+    <label><input type="radio" name="q10" value="C"> C. Call physician immediately</label>
+    <label><input type="radio" name="q10" value="D"> D. Reassess in 5 minutes</label>
+  </div>
+
+  <button class="btn" onclick="checkQ10()">Submit Answer</button>
+  <div id="q10-feedback" class="feedback hidden"></div>
+</div>
+
+
+  <button class="btn" onclick="checkQ2()">Submit Answer</button>
+
+  <div id="q2-feedback" class="feedback hidden"></div>
+</div>
+
+</div>
+
+<script>
+function checkQ1() {
+  const choice = document.querySelector('input[name="q1"]:checked');
+  const fb = document.getElementById('q1-feedback');
+  if (!choice) return;
+
+  fb.classList.remove('hidden');
+
+  if (choice.value === 'C') {
+    fb.className = 'feedback correct';
+    fb.innerHTML = '<strong>Correct.</strong><br>Immediate safety action within nursing scope. Addresses circulation and airway without delay.';
+    document.getElementById('q2').classList.remove('hidden');
+  } else if (choice.value === 'A') {
+    fb.className = 'feedback incorrect';
+    fb.innerHTML = '<strong>Incorrect.</strong><br>Delay error: documentation occurs after safety actions, not before.';
+  } else if (choice.value === 'B') {
+    fb.className = 'feedback incorrect';
+    fb.innerHTML = '<strong>Incorrect.</strong><br>Assessment lock: waiting when immediate action is required.';
+  } else if (choice.value === 'D') {
+    fb.className = 'feedback incorrect';
+    fb.innerHTML = '<strong>Incorrect.</strong><br>Scope error: nurse can initiate safety actions before contacting physician.';
+  }
+}
+
+function checkQ2() {
+  const choice = document.querySelector('input[name="q2"]:checked');
+  const fb = document.getElementById('q2-feedback');
+  if (!choice) return;
+
+  fb.classList.remove('hidden');
+
+  if (choice.value === 'C') {
+    fb.className = 'feedback correct';
+    fb.innerHTML = '<strong>Correct.</strong><br>This statement relies on grammar and professionalism instead of safety behavior. This is ESL misguidance.';
+  } else {
+    fb.className = 'feedback incorrect';
+    fb.innerHTML = '<strong>Incorrect.</strong><br>This statement uses valid Prometric safety-based rationale and does not require correction.';
+  }
+}
+</script>
+
+</body>
+</html>
