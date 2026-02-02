@@ -67,89 +67,134 @@
     <label><input type="radio" name="q2" value="C"> C. “This sounds more professional.”</label>
     <label><input type="radio" name="q2" value="D"> D. “ABC is violated here.”</label>
   </div>
+<!-- QUESTION 3 -->
+<div class="question hidden" id="q3">
+  <p><strong>Question 3</strong><br>
+  Post-operative patient suddenly reports shortness of breath. SpO₂ is 89%.</p>
+
+  <div class="options">
+    <label><input type="radio" name="q3" value="A"> A. Document complaint and reassess in 15 minutes</label>
+    <label><input type="radio" name="q3" value="B"> B. Encourage deep breathing exercises</label>
+    <label><input type="radio" name="q3" value="C"> C. Apply oxygen and assess airway and breathing</label>
+    <label><input type="radio" name="q3" value="D"> D. Notify physician before intervening</label>
+  </div>
+
+  <button class="btn" onclick="checkQ3()">Submit Answer</button>
+  <div id="q3-feedback" class="feedback hidden"></div>
+</div>
+
 <!-- QUESTION 4 -->
-<div class="card" id="q4">
-  <h2>Question 4</h2>
-  <p>Patient receiving IV fluids suddenly complains of chest tightness.</p>
+<div class="question hidden" id="q4">
+  <p><strong>Question 4</strong><br>
+  Patient receiving IV fluids complains of chest tightness.</p>
 
-  <div class="option"><input type="radio" name="q4" value="A"> A. Stop infusion and assess airway and circulation</div>
-  <div class="option"><input type="radio" name="q4" value="B"> B. Slow the infusion and observe</div>
-  <div class="option"><input type="radio" name="q4" value="C"> C. Call physician immediately</div>
-  <div class="option"><input type="radio" name="q4" value="D"> D. Reassure the patient</div>
+  <div class="options">
+    <label><input type="radio" name="q4" value="A"> A. Stop infusion and assess airway and circulation</label>
+    <label><input type="radio" name="q4" value="B"> B. Slow the infusion and observe</label>
+    <label><input type="radio" name="q4" value="C"> C. Call physician immediately</label>
+    <label><input type="radio" name="q4" value="D"> D. Reassure the patient</label>
+  </div>
 
-  <button onclick="checkQ4()">Submit Answer</button>
-  <div class="rationale" id="r4"></div>
+  <button class="btn" onclick="checkQ4()">Submit Answer</button>
+  <div id="q4-feedback" class="feedback hidden"></div>
 </div>
 
 <!-- QUESTION 5 -->
-<div class="card" id="q5">
-  <h2>Question 5</h2>
-  <p>Confused patient attempts to climb out of bed unassisted.</p>
+<div class="question hidden" id="q5">
+  <p><strong>Question 5</strong><br>
+  Confused patient attempts to get out of bed unassisted.</p>
 
-  <div class="option"><input type="radio" name="q5" value="A"> A. Apply restraints immediately</div>
-  <div class="option"><input type="radio" name="q5" value="B"> B. Call family to calm patient</div>
-  <div class="option"><input type="radio" name="q5" value="C"> C. Stay with patient and ensure safety</div>
-  <div class="option"><input type="radio" name="q5" value="D"> D. Document behavior</div>
+  <div class="options">
+    <label><input type="radio" name="q5" value="A"> A. Apply restraints immediately</label>
+    <label><input type="radio" name="q5" value="B"> B. Call family to calm patient</label>
+    <label><input type="radio" name="q5" value="C"> C. Stay with patient and ensure safety</label>
+    <label><input type="radio" name="q5" value="D"> D. Document behavior</label>
+  </div>
 
-  <button onclick="checkQ5()">Submit Answer</button>
-  <div class="rationale" id="r5"></div>
+  <button class="btn" onclick="checkQ5()">Submit Answer</button>
+  <div id="q5-feedback" class="feedback hidden"></div>
 </div>
 
 <!-- QUESTION 6 -->
-<div class="card" id="q6">
-  <h2>Question 6</h2>
-  <p>IV insertion site appears swollen, pale, and cool.</p>
+<div class="question hidden" id="q6">
+  <p><strong>Question 6</strong><br>
+  IV insertion site appears swollen, pale, and cool.</p>
 
-  <div class="option"><input type="radio" name="q6" value="A"> A. Continue infusion and document</div>
-  <div class="option"><input type="radio" name="q6" value="B"> B. Stop infusion and assess site</div>
-  <div class="option"><input type="radio" name="q6" value="C"> C. Notify physician immediately</div>
-  <div class="option"><input type="radio" name="q6" value="D"> D. Reassess after shift</div>
+  <div class="options">
+    <label><input type="radio" name="q6" value="A"> A. Document and continue infusion</label>
+    <label><input type="radio" name="q6" value="B"> B. Stop infusion and assess site</label>
+    <label><input type="radio" name="q6" value="C"> C. Notify physician immediately</label>
+    <label><input type="radio" name="q6" value="D"> D. Reassess after shift change</label>
+  </div>
 
-  <button onclick="checkQ6()">Submit Answer</button>
-  <div class="rationale" id="r6"></div>
+  <button class="btn" onclick="checkQ6()">Submit Answer</button>
+  <div id="q6-feedback" class="feedback hidden"></div>
 </div>
 
 <!-- QUESTION 7 -->
-<div class="card" id="q7">
-  <h2>Question 7</h2>
-  <p>Patient suddenly becomes tachypneic and anxious after ambulation.</p>
+<div class="question hidden" id="q7">
+  <p><strong>Question 7</strong><br>
+  Patient becomes suddenly restless and tachypneic.</p>
 
-  <div class="option"><input type="radio" name="q7" value="A"> A. Encourage rest and reassess later</div>
-  <div class="option"><input type="radio" name="q7" value="B"> B. Apply oxygen and assess breathing</div>
-  <div class="option"><input type="radio" name="q7" value="C"> C. Document findings</div>
-  <div class="option"><input type="radio" name="q7" value="D"> D. Call physician immediately</div>
+  <div class="options">
+    <label><input type="radio" name="q7" value="A"> A. Reassure and reassess later</label>
+    <label><input type="radio" name="q7" value="B"> B. Apply oxygen and assess breathing</label>
+    <label><input type="radio" name="q7" value="C"> C. Document symptoms</label>
+    <label><input type="radio" name="q7" value="D"> D. Call physician immediately</label>
+  </div>
 
-  <button onclick="checkQ7()">Submit Answer</button>
-  <div class="rationale" id="r7"></div>
+  <button class="btn" onclick="checkQ7()">Submit Answer</button>
+  <div id="q7-feedback" class="feedback hidden"></div>
 </div>
 
 <!-- QUESTION 8 -->
-<div class="card" id="q8">
-  <h2>Question 8</h2>
-  <p>Trainer explains a correct answer by saying, “This wording sounds more professional.”</p>
+<div class="question hidden" id="q8">
+  <p><strong>Question 8</strong><br>
+  Which trainer explanation reflects ESL misguidance?</p>
 
-  <div class="option"><input type="radio" name="q8" value="A"> A. Acceptable Prometric reasoning</div>
-  <div class="option"><input type="radio" name="q8" value="B"> B. Valid grammar prioritization</div>
-  <div class="option"><input type="radio" name="q8" value="C"> C. ESL misguidance and must be corrected</div>
-  <div class="option"><input type="radio" name="q8" value="D"> D. Advanced clinical inference</div>
+  <div class="options">
+    <label><input type="radio" name="q8" value="A"> A. “This option delays care.”</label>
+    <label><input type="radio" name="q8" value="B"> B. “This violates ABC priority.”</label>
+    <label><input type="radio" name="q8" value="C"> C. “This sentence sounds more professional.”</label>
+    <label><input type="radio" name="q8" value="D"> D. “This exceeds nursing scope.”</label>
+  </div>
 
-  <button onclick="checkQ8()">Submit Answer</button>
-  <div class="rationale" id="r8"></div>
+  <button class="btn" onclick="checkQ8()">Submit Answer</button>
+  <div id="q8-feedback" class="feedback hidden"></div>
 </div>
 
 <!-- QUESTION 9 -->
-<div class="card" id="q9">
-  <h2>Question 9</h2>
-  <p>Patient reports dizziness and appears pale.</p>
+<div class="question hidden" id="q9">
+  <p><strong>Question 9</strong><br>
+  Patient reports dizziness and appears pale.</p>
 
-  <div class="option"><input type="radio" name="q9" value="A"> A. Document symptoms</div>
-  <div class="option"><input type="radio" name="q9" value="B"> B. Check vital signs and ensure safety</div>
-  <div class="option"><input type="radio" name="q9" value="C"> C. Ask patient to rest later</div>
-  <div class="option"><input type="radio" name="q9" value="D"> D. Notify physician first</div>
+  <div class="options">
+    <label><input type="radio" name="q9" value="A"> A. Document complaint</label>
+    <label><input type="radio" name="q9" value="B"> B. Check vital signs and ensure safety</label>
+    <label><input type="radio" name="q9" value="C"> C. Ask patient to rest later</label>
+    <label><input type="radio" name="q9" value="D"> D. Notify physician immediately</label>
+  </div>
 
-  <button onclick="checkQ9()">Submit Answer</button>
-  <div class="rationale" id="r9"></div>
+  <button class="btn" onclick="checkQ9()">Submit Answer</button>
+  <div id="q9-feedback" class="feedback hidden"></div>
 </div>
+
+<!-- QUESTION 10 -->
+<div class="question hidden" id="q10">
+  <p><strong>Question 10</strong><br>
+  Patient suddenly vomits and becomes unresponsive.</p>
+
+  <div class="options">
+    <label><input type="radio" name="q10" value="A"> A. Document incident</label>
+    <label><input type="radio" name="q10" value="B"> B. Turn patient to side and assess airway</label>
+    <label><input type="radio" name="q10" value="C"> C. Call physician immediately</label>
+    <label><input type="radio" name="q10" value="D"> D. Reassess in 5 minutes</label>
+  </div>
+
+  <button class="btn" onclick="checkQ10()">Submit Answer</button>
+  <div id="q10-feedback" class="feedback hidden"></div>
+</div>
+
 
 <!-- QUESTIONS 10–50 -->
 <!-- Pattern continues IDENTICALLY:
