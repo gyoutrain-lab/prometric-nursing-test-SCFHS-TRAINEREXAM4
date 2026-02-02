@@ -84,8 +84,216 @@ a:2, auto:false, r:"High pass + speed suggests over-coaching."},
 o:["In many cases","Usually","It depends","First action must be"],
 a:3, auto:false, r:"Binary safety language is required."},
 
-/* ===== DUPLICATED STRUCTURE TO REACH 50 ITEMS ===== */
+<script>
+const passMark = 0.85;
+
+const questions = [
+/* ================= ITEMS 1–10 (AUTO-FAIL CORE) ================= */
+{q:"A student asks why oxygen is applied at SpO₂ 84%. What is the ONLY acceptable trainer explanation?",
+o:["Because hypoxia damages organs","Because ABC priority requires airway and breathing first","Because wording implies urgency","Because oxygen improves numbers"],
+a:1, auto:true, r:"Only ABC safety logic is allowed. Grammar or physiology is forbidden."},
+
+{q:"Which trainer statement indicates NCLEX contamination?",
+o:["Prevent harm first","Assess ABC immediately","Address the underlying cause","Immediate safety action"],
+a:2, auto:true, r:"Root-cause framing is NCLEX logic and forbidden."},
+
+{q:"A trainer allows discussion because reasoning 'makes sense'. This is:",
+o:["Adaptive teaching","Encouraging thinking","Minor deviation","Critical authority failure"],
+a:3, auto:true, r:"Negotiating answers invalidates Prometric authority."},
+
+{q:"Which justification is DISALLOWED?",
+o:["Violates ABC","Delays safety","Sentence tense implies urgency","Not first action"],
+a:2, auto:true, r:"Grammar-based reasoning is an auto-disqualifier."},
+
+{q:"Trainer identity that causes AUTO-FAIL:",
+o:["Exam behavior calibrator","Safety logic enforcer","Clinical mentor","Prometric proxy"],
+a:2, auto:true, r:"Clinical mentorship injects unsafe authority."},
+
+{q:"Why is rationale limited to ≤15 words?",
+o:["Save time","Reduce fatigue","Block explanatory drift","Screen size"],
+a:2, auto:false, r:"Compression prevents unsafe explanation habits."},
+
+{q:"Correct response to ESL vocabulary confusion?",
+o:["Explain word","Rephrase question","Redirect to action","Skip item"],
+a:2, auto:false, r:"Action priority overrides vocabulary."},
+
+{q:"Trainer allows 25 seconds debate on a safety item. Status?",
+o:["Acceptable","Neutral","Risky","Invalid Prometric behavior"],
+a:3, auto:false, r:"Timing discipline is mandatory."},
+
+{q:"Pass rate 93%, response time 8s. Correct action?",
+o:["Celebrate","Release cohort","Audit trainer rationale","Increase difficulty"],
+a:2, auto:false, r:"High pass + speed suggests over-coaching."},
+
+{q:"Which phrase is REQUIRED during instruction?",
+o:["In many cases","Usually","It depends","The first action must be"],
+a:3, auto:false, r:"Binary safety language is mandatory."},
+
+/* ================= ITEMS 11–20 ================= */
+{q:"A trainer explains an answer using disease progression. This is:",
+o:["Advanced instruction","Helpful context","Unsafe coaching drift","Acceptable if brief"],
+a:2, auto:false, r:"Pathophysiology teaching violates Prometric logic."},
+
+{q:"A student asks, “What if the doctor prefers another order?” Trainer must say:",
+o:["Doctors differ","Follow hospital policy","First action is safety-based","Depends on setting"],
+a:2, auto:false, r:"Provider preference is irrelevant to first action."},
+
+{q:"Which action best preserves exam validity?",
+o:["Allow rationale discussion","Encourage debate","Enforce answer within 5 seconds","Explain after vote"],
+a:2, auto:false, r:"Timing enforcement protects decision behavior."},
+
+{q:"Trainer says, “You’ll see this in real life.” This is:",
+o:["Motivational","Contextual","Authority contamination","Harmless"],
+a:2, auto:false, r:"Real-life framing overrides exam logic."},
+
+{q:"Which trainer behavior is FORBIDDEN?",
+o:["Redirecting to action","Stopping discussion","Explaining vocabulary","Enforcing timing"],
+a:2, auto:true, r:"Vocabulary explanation is ESL misguidance."},
+
+{q:"A correct answer is chosen for the wrong reason. Trainer should:",
+o:["Accept it","Praise logic","Mark incorrect","Discuss alternatives"],
+a:2, auto:false, r:"Reasoning must match Prometric logic."},
+
+{q:"Trainer says, “This is common sense.” This is:",
+o:["Encouraging","Neutral","Invalid rationale","Helpful shortcut"],
+a:2, auto:false, r:"Common-sense framing lacks safety logic."},
+
+{q:"Which metric MOST signals coaching drift?",
+o:["Low pass rate","High ESL errors","High pass + low response time","Long exam duration"],
+a:2, auto:false, r:"Speed + success suggests over-guidance."},
+
+{q:"Trainer explains grammar tense to justify urgency. Result?",
+o:["Minor error","Coachable moment","AUTO-FAIL","Acceptable ESL aid"],
+a:2, auto:true, r:"Grammar-based logic invalidates certification."},
+
+{q:"Trainer role during drills is best described as:",
+o:["Facilitator","Mentor","Authority enforcer","Clinical guide"],
+a:2, auto:false, r:"Authority enforcement is required."},
+
+/* ================= ITEMS 21–30 ================= */
+{q:"Which phrase must be corrected immediately?",
+o:["Immediate safety","First action","Address cause","Assess airway"],
+a:2, auto:false, r:"Cause-seeking delays safety."},
+
+{q:"Trainer allows partial credit answers. This is:",
+o:["Fair","Educational","Unsafe","Supportive"],
+a:2, auto:false, r:"Binary decisions only."},
+
+{q:"Which teaching habit causes score inflation?",
+o:["Strict timing","Answer locking","Explaining why distractors exist","Silent correction"],
+a:2, auto:false, r:"Distractor explanation trains guessing."},
+
+{q:"Trainer corrects answer after group consensus. This is:",
+o:["Acceptable","Neutral","Authority failure","Efficient"],
+a:2, auto:false, r:"Authority must be singular."},
+
+{q:"Which justification is ALLOWED?",
+o:["This feels urgent","This wording is tricky","This delays safety","I’ve seen this happen"],
+a:2, auto:false, r:"Safety delay framing is valid."},
+
+{q:"A student argues politely. Trainer must:",
+o:["Engage","Explain further","Restate rule and move on","Vote again"],
+a:2, auto:false, r:"Rules override persuasion."},
+
+{q:"Trainer explains options elimination logic in detail. Risk?",
+o:["None","Improves scores","Teaches guessing","Encourages insight"],
+a:2, auto:false, r:"Elimination logic trains test gaming."},
+
+{q:"Which response preserves Prometric intent?",
+o:["Why do you think that?","Let’s discuss","Correct answer is locked","Explain your thinking"],
+a:2, auto:false, r:"Discussion invites drift."},
+
+{q:"Trainer says, “In NCLEX, this would be different.” Result?",
+o:["Clarifying","Helpful","AUTO-FAIL","Minor issue"],
+a:2, auto:true, r:"NCLEX comparison contaminates logic."},
+
+{q:"Trainer goal during exam prep is to:",
+o:["Increase understanding","Improve confidence","Enforce safe decisions","Explain rationale deeply"],
+a:2, auto:false, r:"Decision behavior is the target."},
+
+/* ================= ITEMS 31–40 ================= */
+{q:"Which behavior predicts unsafe cohort release?",
+o:["Low scores","Slow answers","High confidence explanations","High pass rates"],
+a:2, auto:false, r:"Confidence + explanation signals drift."},
+
+{q:"Trainer adjusts answers based on cohort level. This is:",
+o:["Adaptive","Fair","Unsafe","Inclusive"],
+a:2, auto:false, r:"Standards must not change."},
+
+{q:"A trainer rewords a stem to help comprehension. Result?",
+o:["Helpful","Inclusive","Invalid exam simulation","Efficient"],
+a:2, auto:false, r:"Rewording alters decision cues."},
+
+{q:"Which metric should trigger immediate audit?",
+o:["Pass 60%","Response 12s","ESL errors 0%","Pass 95% + 7s"],
+a:3, auto:false, r:"Perfect performance is suspicious."},
+
+{q:"Trainer encourages memorizing keywords. This is:",
+o:["Efficient","Strategic","Forbidden","Helpful"],
+a:2, auto:true, r:"Keyword memorization bypasses reasoning."},
+
+{q:"Trainer explains why distractor is tempting. Effect?",
+o:["Builds insight","Clarifies","Trains unsafe reasoning","Neutral"],
+a:2, auto:false, r:"Temptation explanation enables guessing."},
+
+{q:"Correct handling of incorrect answer?",
+o:["Explain fully","Allow defense","State unsafe reason briefly","Debate"],
+a:2, auto:false, r:"Brief unsafe labeling only."},
+
+{q:"Trainer allows exceptions to rules. Result?",
+o:["Flexibility","Fairness","System breakdown","Support"],
+a:2, auto:false, r:"Consistency preserves validity."},
+
+{q:"Which phrase must NEVER be used?",
+o:["Immediate action","Unsafe delay","It depends","First priority"],
+a:2, auto:true, r:"Conditional language violates binary logic."},
+
+{q:"Trainer uses personal anecdotes. Effect?",
+o:["Engagement","Authority","Bias injection","Motivation"],
+a:2, auto:false, r:"Personal stories distort judgment."},
+
+/* ================= ITEMS 41–50 ================= */
+{q:"Trainer allows guessing strategy coaching. This is:",
+o:["Helpful","Strategic","AUTO-FAIL","Efficient"],
+a:2, auto:true, r:"Guessing undermines safety screening."},
+
+{q:"Which action best enforces Prometric discipline?",
+o:["Explain more","Allow retries","Lock answer and move on","Ask peers"],
+a:2, auto:false, r:"Finality trains decisiveness."},
+
+{q:"Trainer responds to protest by explaining more. This is:",
+o:["Supportive","Educational","Unsafe","Inclusive"],
+a:2, auto:false, r:"Explanation rewards protest behavior."},
+
+{q:"Which mindset must a trainer suppress?",
+o:["Instructor","Facilitator","Clinician","Exam proxy"],
+a:2, auto:false, r:"Clinical identity conflicts with exam role."},
+
+{q:"Trainer adjusts timing for ESL students. Result?",
+o:["Inclusive","Fair","Invalid simulation","Helpful"],
+a:2, auto:false, r:"Timing must be uniform."},
+
+{q:"Trainer evaluates reasoning quality instead of choice. This is:",
+o:["Advanced","Educational","Forbidden","Fair"],
+a:2, auto:false, r:"Only choice correctness matters."},
+
+{q:"Trainer explains cultural context. Effect?",
+o:["Clarifies","Supports ESL","Distracts from action","Neutral"],
+a:2, auto:false, r:"Culture discussion delays safety."},
+
+{q:"Which outcome invalidates certification regardless of score?",
+o:["Low pass","Slow cohort","Grammar-based justification","High ESL error"],
+a:2, auto:true, r:"Grammar logic is a critical failure."},
+
+{q:"Trainer says, “You’ll understand with experience.” This is:",
+o:["Mentorship","Encouragement","Authority contamination","Harmless"],
+a:2, auto:false, r:"Experience framing overrides rules."},
+
+{q:"Final responsibility of certified trainer:",
+o:["Teach content","Motivate learners","Prevent unsafe release","Explain answers"],
+a:2, auto:false, r:"Release control is the core duty."}
 ];
+</script>
 
 while (questions.length < 50) {
   questions.push({
