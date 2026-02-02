@@ -1,60 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Prometric Safety Tie-Breaker Test</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f6f7f9;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .question {
-      background: #ffffff;
-      border-radius: 6px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    .options label {
-      display: block;
-      margin: 8px 0;
-      cursor: pointer;
-    }
-
-    .btn {
-      margin-top: 12px;
-      padding: 8px 14px;
-      background: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: #0056b3;
-    }
-
-    .feedback {
-      margin-top: 12px;
-      font-weight: bold;
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
+<style>
+.hidden { display: none; }
+.feedback { margin-top: 10px; font-weight: bold; }
+.btn { margin-top: 10px; }
+.options label { display: block; margin: 6px 0; }
+</style>
 </head>
 
 <body>
-
-<h2>Prometric Nurse Technician – Safety Tie-Breaker</h2>
 
 <!-- QUESTION 3 -->
 <div class="question" id="q3">
@@ -171,62 +129,4 @@
 <!-- QUESTION 10 -->
 <div class="question hidden" id="q10">
   <p><strong>Question 10</strong><br>
-  Patient suddenly vomits and becomes unresponsive.</p>
-
-  <div class="options">
-    <label><input type="radio" name="q10" value="A"> A. Document incident</label>
-    <label><input type="radio" name="q10" value="B"> B. Turn patient to side and assess airway</label>
-    <label><input type="radio" name="q10" value="C"> C. Call physician immediately</label>
-    <label><input type="radio" name="q10" value="D"> D. Reassess in 5 minutes</label>
-  </div>
-
-  <button class="btn" onclick="checkQ10()">Submit Answer</button>
-  <div id="q10-feedback" class="feedback hidden"></div>
-</div>
-
-<script>
-  const answers = {
-    q3: "C",
-    q4: "A",
-    q5: "C",
-    q6: "B",
-    q7: "B",
-    q8: "C",
-    q9: "B",
-    q10: "B"
-  };
-
-  function checkAnswer(qNum) {
-    const selected = document.querySelector(`input[name="q${qNum}"]:checked`);
-    const feedback = document.getElementById(`q${qNum}-feedback`);
-
-    if (!selected) {
-      feedback.textContent = "⚠️ Please select an answer.";
-      feedback.classList.remove("hidden");
-      return;
-    }
-
-    if (selected.value === answers[`q${qNum}`]) {
-      feedback.textContent = "✅ Correct — safety-first decision.";
-      feedback.classList.remove("hidden");
-
-      const next = document.getElementById(`q${qNum + 1}`);
-      if (next) next.classList.remove("hidden");
-    } else {
-      feedback.textContent = "❌ Unsafe or delayed action.";
-      feedback.classList.remove("hidden");
-    }
-  }
-
-  function checkQ3() { checkAnswer(3); }
-  function checkQ4() { checkAnswer(4); }
-  function checkQ5() { checkAnswer(5); }
-  function checkQ6() { checkAnswer(6); }
-  function checkQ7() { checkAnswer(7); }
-  function checkQ8() { checkAnswer(8); }
-  function checkQ9() { checkAnswer(9); }
-  function checkQ10() { checkAnswer(10); }
-</script>
-
-</body>
-</html>
+  Patient suddenly vomits and becomes unresponsive.
